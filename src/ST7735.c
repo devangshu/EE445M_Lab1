@@ -1422,7 +1422,7 @@ void ST7735_Message(uint32_t  d, uint32_t  l, char *pt, int32_t value){
     if (value < 0){ // Handle negative values
       value = -value;
     }
-    ST7735_OutUDec(value)
+    ST7735_OutUDec(value);
 }
 
 //-----------------------ST7735_OutUDec4-----------------------

@@ -15,6 +15,7 @@
 #include "../inc/LaunchPad.h"
 #include "../inc/Timer4A.h"
 #include "../inc/WTimer0A.h"
+#include "../inc/Timer1A.h"
 #include "../RTOS_Labs_common/OS.h"
 #include "../RTOS_Labs_common/ST7735.h"
 #include "../inc/ADCT0ATrigger.h"
@@ -391,7 +392,11 @@ uint32_t OS_TimeDifference(uint32_t start, uint32_t stop){
   return 0; // replace this line with solution
 };
 
+uint32_t MsTime = 0;
 
+static void updateMsTime(void){
+    MsTime++;
+}
 // ******** OS_ClearMsTime ************
 // sets the system time to zero (solve for Lab 1), and start a periodic interrupt
 // Inputs:  none
@@ -399,6 +404,8 @@ uint32_t OS_TimeDifference(uint32_t start, uint32_t stop){
 // You are free to change how this works
 void OS_ClearMsTime(void){
   // put Lab 1 solution here
+    MsTime = 0;
+    Timer1A_Init(updateMsTime, 80000, 1); //interrupts every ms
 
 };
 
@@ -410,7 +417,7 @@ void OS_ClearMsTime(void){
 // For Labs 2 and beyond, it is ok to make the resolution to match the first call to OS_AddPeriodicThread
 uint32_t OS_MsTime(void){
   // put Lab 1 solution here
-  return 0; // replace this line with solution
+  return MsTime; // replace this line with solution
 };
 
 
