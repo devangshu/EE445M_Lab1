@@ -405,7 +405,7 @@ static void updateMsTime(void){
 void OS_ClearMsTime(void){
   // put Lab 1 solution here
     MsTime = 0;
-    Timer1A_Init(updateMsTime, 80000, 1); //interrupts every ms
+    Timer1A_Init(updateMsTime, 80000, 1); //interrupts every ms assuming 80MHz
 
 };
 
