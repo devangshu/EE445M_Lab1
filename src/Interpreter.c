@@ -55,6 +55,24 @@ void Interpreter(void){
             UART_OutUDec(adc_in);
             UART_OutString("\n\r");
             break;
+        case 't':
+            UART_OutString("Testing OS Time Functions\n\r");
+            uint32_t time = 0;
+            if(string[3] == 'r'){
+                OS_ClearMsTime();
+                UART_OutString("Time has successfully been cleared\n\r");
+                time = OS_MsTime();
+                UART_OutString("The current time is ");
+                UART_OutUDec(time);
+                UART_OutString("ms. \n\r");
+                string[3] = 0; // Clears letter from array, can be handled better
+            } else {
+                time = OS_MsTime();
+                UART_OutString("The current time is ");
+                UART_OutUDec(time);
+                UART_OutString("ms. \n\r");
+            }
+            break;
         case 'h':
         default:
             UART_OutString("Welcome to the help menu \n\r");
@@ -64,6 +82,10 @@ void Interpreter(void){
             UART_OutString("------------------------------\n\r");
             UART_OutString("l - LCD test \n\r");
             UART_OutString("Usage: l [display number] <message> <value> \n\r");
+            UART_OutString("------------------------------ \n\r");
+            UART_OutString("t - OS time \n\r");
+            UART_OutString("Usage: t [flag] \n\r");
+            UART_OutString("Flags: -r: reset time\n\r");
             UART_OutString("------------------------------ \n\r");
             break;
 
