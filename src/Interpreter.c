@@ -14,6 +14,9 @@
 #include "../RTOS_Labs_common/UART0int.h"
 #include "../RTOS_Labs_common/eDisk.h"
 #include "../RTOS_Labs_common/eFile.h"
+#include "../RTOS_Labs_common/ADC.h"
+
+char string[20];
 
 
 // Print jitter histogram
@@ -22,10 +25,44 @@ void Jitter(int32_t MaxJitter, uint32_t const JitterSize, uint32_t JitterHistogr
 	
 }
 
+static void OutCRLF(void){
+  UART_OutChar(CR);
+  UART_OutChar(LF);
+}
+
 // *********** Command line interpreter (shell) ************
 void Interpreter(void){ 
   // write this  
+    UART_OutString("EE445M Lab 1 Interpreter");
+    OutCRLF();
+
+    while(1){
+        UART_OutString("> ");
+        UART_InString(string,19);
+        OutCRLF();
+        switch(string[0]){
+        case 'l':
+            UART_OutString("LCD \n\r");
+            break;
+        case 'a':
+            UART_OutString("ADC \n\r");
+            break;
+        case 'h':
+        default:
+            UART_OutString("Welcome to the help menu \n\r");
+            UART_OutString("------------------------------\n\r");
+            UART_OutString("a - ADC test \n\r");
+            UART_OutString("Usage: a <channel number> \n\r");
+            UART_OutString("------------------------------\n\r");
+            UART_OutString("l - LCD test \n\r");
+            UART_OutString("Usage: l [display number] <message> <value> \n\r");
+            UART_OutString("------------------------------ \n\r");
+            break;
+
+        }
+    }
 
 }
+
 
 

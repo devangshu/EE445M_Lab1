@@ -130,6 +130,7 @@ int ADC_Init(uint32_t channelNum){
       ADC0_ACTSS_R |= 0x0008;         // 16) enable sample sequencer 3
   return 0;
 }
+
 // software start sequencer 3 and return 12 bit ADC result
 uint32_t ADC_In(void){
 // put your Lab 1 code here
@@ -139,3 +140,4 @@ uint32_t ADC_In(void){
     ADC0_ISC_R = 0x0008;             // 4) acknowledge completion
     return result;
 }
+
