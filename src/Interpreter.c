@@ -45,7 +45,15 @@ void Interpreter(void){
             UART_OutString("LCD \n\r");
             break;
         case 'a':
-            UART_OutString("ADC \n\r");
+            UART_OutString("Testing ADC on channel ");
+            UART_OutChar(string[2]);
+            UART_OutString("...\n\r");
+            uint32_t channel = string[2] - 48;
+            uint32_t adc_in = 0;
+            ADC_Init(channel);
+            adc_in = ADC_In();
+            UART_OutUDec(adc_in);
+            UART_OutString("\n\r");
             break;
         case 'h':
         default:
