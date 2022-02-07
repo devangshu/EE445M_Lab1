@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS
+CG_TOOL_ROOT := /Applications/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -21,6 +21,7 @@ ORDERED_OBJS += \
 "./src/OS.obj" \
 "./src/PLL.obj" \
 "./src/ST7735.obj" \
+"./src/Timer1A.obj" \
 "./src/Timer4A.obj" \
 "./src/UART0int.obj" \
 "./src/Unified_Port_Init.obj" \
@@ -158,22 +159,22 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 RTOS_sp22_lab1.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: Arm Linker'
-	"/Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"RTOS_sp22_lab1.map" --heap_size=0 --stack_size=512 -i"/Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"/Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="RTOS_sp22_lab1_linkInfo.xml" --rom_model -o "RTOS_sp22_lab1.out" $(ORDERED_OBJS)
+	"/Applications/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"RTOS_sp22_lab1.map" --heap_size=0 --stack_size=512 -i"/Applications/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"/Applications/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="RTOS_sp22_lab1_linkInfo.xml" --rom_model -o "RTOS_sp22_lab1.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
 RTOS_sp22_lab1.hex: $(EXE_OUTPUTS)
 	@echo 'Building secondary target: "$@"'
 	@echo 'Invoking: Arm Hex Utility'
-	"/Applications/ti/ccs1100/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armhex" --diag_wrap=off -o "RTOS_sp22_lab1.hex" $(EXE_OUTPUTS__QUOTED)
+	"/Applications/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armhex" --diag_wrap=off -o "RTOS_sp22_lab1.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building secondary target: "$@"'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Lab1.obj" "tm4c123gh6pm_startup_ccs.obj" "src/ADC.obj" "src/ADCSWTrigger.obj" "src/ADCT0ATrigger.obj" "src/CortexM.obj" "src/IRDistance.obj" "src/Interpreter.obj" "src/LPF.obj" "src/LaunchPad.obj" "src/OS.obj" "src/PLL.obj" "src/ST7735.obj" "src/Timer4A.obj" "src/UART0int.obj" "src/Unified_Port_Init.obj" "src/WTimer0A.obj" "src/eDisk.obj" "src/eFile.obj" 
-	-$(RM) "Lab1.d" "tm4c123gh6pm_startup_ccs.d" "src/ADC.d" "src/ADCSWTrigger.d" "src/ADCT0ATrigger.d" "src/CortexM.d" "src/IRDistance.d" "src/Interpreter.d" "src/LPF.d" "src/LaunchPad.d" "src/OS.d" "src/PLL.d" "src/ST7735.d" "src/Timer4A.d" "src/UART0int.d" "src/Unified_Port_Init.d" "src/WTimer0A.d" "src/eDisk.d" "src/eFile.d" 
+	-$(RM) "Lab1.obj" "tm4c123gh6pm_startup_ccs.obj" "src/ADC.obj" "src/ADCSWTrigger.obj" "src/ADCT0ATrigger.obj" "src/CortexM.obj" "src/IRDistance.obj" "src/Interpreter.obj" "src/LPF.obj" "src/LaunchPad.obj" "src/OS.obj" "src/PLL.obj" "src/ST7735.obj" "src/Timer1A.obj" "src/Timer4A.obj" "src/UART0int.obj" "src/Unified_Port_Init.obj" "src/WTimer0A.obj" "src/eDisk.obj" "src/eFile.obj" 
+	-$(RM) "Lab1.d" "tm4c123gh6pm_startup_ccs.d" "src/ADC.d" "src/ADCSWTrigger.d" "src/ADCT0ATrigger.d" "src/CortexM.d" "src/IRDistance.d" "src/Interpreter.d" "src/LPF.d" "src/LaunchPad.d" "src/OS.d" "src/PLL.d" "src/ST7735.d" "src/Timer1A.d" "src/Timer4A.d" "src/UART0int.d" "src/Unified_Port_Init.d" "src/WTimer0A.d" "src/eDisk.d" "src/eFile.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -1418,11 +1418,13 @@ void ST7735_Message(uint32_t  d, uint32_t  l, char *pt, int32_t value){
     // Display string at desired cursor
     ST7735_OutString(pt);
     
-    // Display integer at desired cursor
-    if (value < 0){ // Handle negative values
-      value = -value;
+    if (value != -1) {
+        // Display integer at desired cursor
+        if (value < 0){ // Handle negative values
+          value = -value;
+        }
+        ST7735_OutUDec(value);
     }
-    ST7735_OutUDec(value);
 }
 
 //-----------------------ST7735_OutUDec4-----------------------

@@ -15,6 +15,7 @@ C_SRCS += \
 ../src/OS.c \
 ../src/PLL.c \
 ../src/ST7735.c \
+../src/Timer1A.c \
 ../src/Timer4A.c \
 ../src/UART0int.c \
 ../src/Unified_Port_Init.c \
@@ -34,6 +35,7 @@ C_DEPS += \
 ./src/OS.d \
 ./src/PLL.d \
 ./src/ST7735.d \
+./src/Timer1A.d \
 ./src/Timer4A.d \
 ./src/UART0int.d \
 ./src/Unified_Port_Init.d \
@@ -53,6 +55,7 @@ OBJS += \
 ./src/OS.obj \
 ./src/PLL.obj \
 ./src/ST7735.obj \
+./src/Timer1A.obj \
 ./src/Timer4A.obj \
 ./src/UART0int.obj \
 ./src/Unified_Port_Init.obj \
@@ -72,6 +75,7 @@ OBJS__QUOTED += \
 "src/OS.obj" \
 "src/PLL.obj" \
 "src/ST7735.obj" \
+"src/Timer1A.obj" \
 "src/Timer4A.obj" \
 "src/UART0int.obj" \
 "src/Unified_Port_Init.obj" \
@@ -91,6 +95,7 @@ C_DEPS__QUOTED += \
 "src/OS.d" \
 "src/PLL.d" \
 "src/ST7735.d" \
+"src/Timer1A.d" \
 "src/Timer4A.d" \
 "src/UART0int.d" \
 "src/Unified_Port_Init.d" \
@@ -110,6 +115,7 @@ C_SRCS__QUOTED += \
 "../src/OS.c" \
 "../src/PLL.c" \
 "../src/ST7735.c" \
+"../src/Timer1A.c" \
 "../src/Timer4A.c" \
 "../src/UART0int.c" \
 "../src/Unified_Port_Init.c" \
