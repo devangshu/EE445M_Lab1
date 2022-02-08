@@ -42,8 +42,25 @@ void Interpreter(void){
         OutCRLF();
         switch(string[0]){
         case 'l':
-            UART_OutString("LCD \n\r");
-            break;
+             UART_OutString("Testing ADC \n\r");
+             char linenum_ = string[3];
+             int linenum = linenum_ - '0';
+             // rest of string: index 5 to index 19
+             char userstring[16];
+             strncpy(userstring, &string[5], 16);
+             userstring[15] = '\0';
+
+             int d = 0;
+             if (string[1] == 't') {
+                 d = 0;
+                 ST7735_FillRect(0, 0, 128, 79, 0);
+             } else if (string[1] == 'b') {
+                 d = 1;
+                 ST7735_FillRect(0, 80, 128, 160, 0);
+             }
+
+             ST7735_Message(d, linenum, userstring, -1);
+             break;
         case 'a':
             UART_OutString("Testing ADC on channel ");
             UART_OutChar(string[2]);

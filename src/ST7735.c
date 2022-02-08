@@ -1412,18 +1412,22 @@ void ST7735_Message(uint32_t  d, uint32_t  l, char *pt, int32_t value){
     if(d == 0){
         ST7735_SetCursor(0, l);
     } else {
-        ST7735_SetCursor(0, 3+l); //check whether the constant should be
+        ST7735_SetCursor(0, 8+l); //check whether the constant should be
     }
 
     // Display string at desired cursor
     ST7735_OutString(pt);
     
-    // Display integer at desired cursor
-    if (value < 0){ // Handle negative values
-      value = -value;
-    }
-    ST7735_OutUDec(value);
+    if (value != -1) {
+            // Display integer at desired cursor
+            if (value < 0){ // Handle negative values
+              value = -value;
+            }
+            ST7735_OutUDec(value);
+        }
 }
+
+
 
 //-----------------------ST7735_OutUDec4-----------------------
 // Output a 32-bit number in unsigned 4-digit decimal format
